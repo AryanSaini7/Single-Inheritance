@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+class A
+{
+    int a;
+    public:
+    void get_a(int);
+    int print_a();
+};
+class B:public A
+{
+    int b,c;
+    public:
+    void get_b(int);
+    void add();
+    void display();
+};
+void A::get_a(int x)
+{
+    a=x;
+}
+int A::print_a()
+{
+    return a;
+}
+void B::get_b(int x)
+{
+    b=x;
+}
+void B::add()
+{
+    c=print_a();
+    c=c+b;
+}
+void B::display()
+{
+    cout<<"Value of A:"<<print_a()<<endl;
+    cout<<"Value of B:"<<b<<endl;
+    cout<<"Value of C Addition:"<<c<<endl;
+}
+int main()
+{
+    int a,b;
+    cout<<"Enter the value of a:"<<endl;
+    cin>>a;
+    cout<<"Enter the value of b:"<<endl;
+    cin>>b;
+    B obj;
+    obj.get_a(a);
+    obj.get_b(b);
+    obj.add();
+    obj.display();
+}
